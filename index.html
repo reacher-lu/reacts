@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+  </head>
+  <body>
+    <div id="box">
+      
+    </div>
+    <script src="bower_components/react/react.js"></script>
+    <script src="bower_components/react/JSXTransformer.js"></script>
+    <script type="text/jsx">
+      console.log(React);
+      var HelloMessage = React.createClass({
+        render: function() {
+          return <h1 className={this.props.class}> {"Hello"+this.props.name}</h1>;//return 后面的内容不要打括号
+        }
+      });
+
+      // var names = ['1', '2', '3'];
+      React.render(
+        // <div>
+        // {
+        //   names.map(function (name) {
+        //     return <div>Hello, {name}!</div>
+        //   })
+        // }
+        // </div>
+        <HelloMessage name="lv" class="sb" />,
+        document.querySelector('body'),
+        function(){
+          console.log('done');
+        }
+      );
+    </script>
+  </body>
+</html>

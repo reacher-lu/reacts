@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+  </head>
+  <body>
+    <div id="box">
+      
+    </div>
+    <script src="bower_components/react/react.js"></script>
+    <script src="bower_components/react/JSXTransformer.js"></script>
+    <script type="text/jsx">
+      console.log(React);
+      var Hello = React.createClass({
+        render: function() {
+          return (
+            <div>
+              <h1 className={this.props.class}>"Hello"+{this.props.name}</h1>
+              <Sub1/>
+            </div>
+          );
+        }
+      });
+
+      var Sub1 = React.createClass({
+        render : function(){
+          return <span>2222</span>
+        }
+      });
+
+      // var names = ['1', '2', '3'];
+      React.render(
+        // <div>
+        // {
+        //   names.map(function (name) {
+        //     return <div>Hello, {name}!</div>
+        //   })
+        // }
+        // </div>
+        <Hello name="lv" class="sb" />,
+        document.querySelector('body'),
+        function(){
+          console.log('done');
+        }
+      );
+    </script>
+  </body>
+</html>

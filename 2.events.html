@@ -11,22 +11,20 @@
     <script src="bower_components/react/react.js"></script>
     <script src="bower_components/react/JSXTransformer.js"></script>
     <script type="text/jsx">
-      console.log(React);
+      // React.findDOMNode
+      // this.refs.X
       var HelloMessage = React.createClass({
+        clickEvent : function(){
+          var dom = React.findDOMNode(this.refs.text);
+          console.log(dom);
+          dom.innerHTML = 111;
+        },
         render: function() {
-          return <h1 className={this.props.class}> {"Hello"+this.props.name}</h1>;//return 后面的内容不要打括号
+          return <h1 className={this.props.class} onClick={this.clickEvent} ref="text">{"Hello"+this.props.name}</h1>;
         }
       });
 
-      // var names = ['1', '2', '3'];
       React.render(
-        // <div>
-        // {
-        //   names.map(function (name) {
-        //     return <div>Hello, {name}!</div>
-        //   })
-        // }
-        // </div>
         <HelloMessage name="lv" class="sb" />,
         document.querySelector('body'),
         function(){
